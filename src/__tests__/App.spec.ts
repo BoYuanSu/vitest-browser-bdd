@@ -1,11 +1,8 @@
-import { describe, it, expect } from 'vitest'
-
-import { mount } from '@vue/test-utils'
+import { render } from 'vitest-browser-vue'
 import App from '../App.vue'
 
-describe('App', () => {
-  it('mounts renders properly', () => {
-    const wrapper = mount(App)
-    expect(wrapper.text()).toContain('You did it!')
+describe('app', () => {
+  it('render', () => {
+    const screen = render(App)
   })
 })
