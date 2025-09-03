@@ -4,6 +4,8 @@ import { render, cleanup, type RenderResult } from 'vitest-browser-vue'
 import BaseButton from './BaseButton.vue'
 
 
+// relative path not working in vitest browser mode
+// const feature = await loadFeature('./BaseButton.feature')
 const feature = await loadFeature('src/components/BaseButton/BaseButton.feature')
 
 describeFeature(feature, ({ Scenario }) => {
