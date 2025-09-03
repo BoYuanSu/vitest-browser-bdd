@@ -1,6 +1,6 @@
 import { loadFeature, describeFeature } from '@amiceli/vitest-cucumber/browser'
 import { page, userEvent } from '@vitest/browser/context'
-import { render, cleanup, type RenderResult } from 'vitest-browser-vue'
+import { render, type RenderResult } from 'vitest-browser-vue/pure'
 import BaseButton from './BaseButton.vue'
 
 
@@ -27,13 +27,13 @@ describeFeature(feature, ({ Scenario }) => {
       expect(mockClick).toHaveBeenCalledTimes(1)
       console.log('🚀 ~ Given I am on the button page:', screen.baseElement)
 
-      page.screenshot({ save: true, path: './screenshots/default-button.png' })
+      await page.screenshot({ save: true, path: './screenshots/default-button.png' })
     })
 
     When('I click the default button', async () => {
-      page.screenshot({ save: true, path: './screenshots/default-button2.png' })
+      await page.screenshot({ save: true, path: './screenshots/default-button2.png' })
       console.log('🚀 ~ When I click the default button:', screen.baseElement)
-      const button = await screen.getByRole('button', { name: 'test' })
+      const button = screen.getByRole('button', { name: 'test' })
       await user.click(button)
 
     })
