@@ -1,10 +1,14 @@
-import { loadFeature, describeFeature } from '@amiceli/vitest-cucumber/browser'
+import { loadFeatureFromText, describeFeature } from '@amiceli/vitest-cucumber'
 import { page, userEvent } from '@vitest/browser/context'
 import { render, type RenderResult } from 'vitest-browser-vue/pure'
 import BaseButton from './BaseButton.vue'
 
+import rawFeature from '@/components/BaseButton/BaseButton.feature?raw'
 
-const feature = await loadFeature('src/components/BaseButton/BaseButton.feature')
+
+// pat https://github.com/amiceli/vitest-cucumber/issues/258
+// const feature = await loadFeature('./BaseButton.feature')
+const feature = loadFeatureFromText(rawFeature)
 
 describeFeature(feature, ({ Scenario }) => {
   // Write your tests here
